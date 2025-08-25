@@ -1,1 +1,94 @@
-/* You can add global styles to this file, and also import other style files */
+@import "tailwindcss";
+
+/* ------------------------------------- */
+/* Variáveis do Tema (CSS Custom Properties) */
+/* ------------------------------------- */
+
+/* Tema Padrão (Light) */
+:root {
+  --color-primary: #1DA1F2;
+  --color-secondary: #9333EA;
+  --color-neutral: #9CA3AF;
+  --color-neutral-dark: #111827; /* Usado para o fundo */
+  --color-text: #111827;
+  --color-background: #ffffff;
+}
+
+/* Tema Escuro */
+.dark {
+  --color-primary: #1DA1F2;
+  --color-secondary: #6B21A8; /* Tonalidade diferente para o dark mode */
+  --color-neutral: #E5E7EB; /* Tonalidade mais clara para texto */
+  --color-neutral-dark: #111827;
+  --color-text: #E5E7EB;
+  --color-background: #111827;
+}
+
+/* Exemplo de Terceiro Tema (alternativo) */
+.alt {
+  --color-primary: #FF7043; /* Cor primária laranja */
+  --color-secondary: #3D5AFE; /* Cor secundária azul */
+  --color-neutral: #334155;
+  --color-text: #E2E8F0;
+  --color-background: #1F2937;
+}
+
+/* ------------------------------------- */
+/* Reset e Classes de Componentes */
+/* ------------------------------------- */
+
+body {
+  @apply transition-colors duration-300;
+  background-color: var(--color-background);
+  color: var(--color-text);
+  font-family: 'Poppins', sans-serif;
+}
+
+/* Botões */
+.btn {
+  @apply px-4 py-2 rounded-lg font-medium transition-all;
+}
+
+/* Aplicação das cores usando variáveis CSS */
+.btn-primary {
+  background-color: var(--color-primary);
+  color: white; /* ou use uma variável para a cor do texto do botão se necessário */
+}
+
+.btn-primary:hover {
+  background-color: var(--color-neutral-dark);
+}
+
+.btn-secondary {
+  background-color: var(--color-secondary);
+  color: white;
+}
+
+.btn-secondary:hover {
+  background-color: var(--color-neutral-dark);
+}
+
+.btn-outline {
+  border-color: var(--color-neutral);
+  color: var(--color-neutral);
+}
+
+.btn-outline:hover {
+  background-color: var(--color-neutral);
+  color: white;
+}
+
+/* Inputs e Selects */
+.input, .select {
+  @apply w-full px-3 py-2 border rounded-lg focus:outline-none;
+  /* Aplicação das cores e bordas usando variáveis CSS */
+  background-color: var(--color-background);
+  border-color: var(--color-neutral);
+  color: var(--color-text);
+}
+
+/* Cor do anel de foco */
+.input:focus, .select:focus {
+  outline: none;
+  box-shadow: 0 0 0 2px var(--color-primary);
+}
