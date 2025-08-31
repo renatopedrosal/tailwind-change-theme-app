@@ -1,59 +1,80 @@
-# TailwindApp
+# Projeto Angular com Tailwind CSS: Paletas de Cores Dinâmicas
 
-This project was generated using [Angular CLI](https://github.com/angular/angular-cli) version 20.0.5.
+Este projeto é uma aplicação **Angular** que demonstra a implementação de paletas de cores dinâmicas usando **Tailwind CSS**. O objetivo é permitir que o usuário altere facilmente o tema da interface entre as opções disponíveis (verde, azul e roxo).
 
-## Development server
+---
 
-To start a local development server, run:
+## 🛠️ Tecnologias
 
-```bash
-ng serve
-```
+* **Angular**: Framework para construção de interfaces de usuário.
+* **Tailwind CSS**: Framework CSS utilitário para estilização rápida e eficiente.
+* **TypeScript**: Linguagem de programação tipada que compila para JavaScript.
 
-Once the server is running, open your browser and navigate to `http://localhost:4200/`. The application will automatically reload whenever you modify any of the source files.
+---
 
-## Code scaffolding
+## 🎨 Como Funciona
 
-Angular CLI includes powerful code scaffolding tools. To generate a new component, run:
+A funcionalidade principal reside na manipulação de classes CSS no elemento `<body>` do documento. O **Tailwind CSS** é configurado para aplicar estilos específicos baseados na classe do tema ativo (por exemplo, `theme-blue`). A lógica para trocar e salvar a preferência do usuário (usando o `localStorage` do navegador) é gerenciada por um serviço Angular. Isso garante que o tema escolhido seja mantido mesmo após a página ser recarregada.
 
-```bash
-ng generate component component-name
-```
+---
 
-For a complete list of available schematics (such as `components`, `directives`, or `pipes`), run:
+## 📂 Estrutura do Projeto
 
-```bash
-ng generate --help
-```
+* `src/styles.css`: Contém as diretivas `@tailwind` e a base de estilos globais.
+* `tailwind.config.js`: Arquivo de configuração do Tailwind, onde as paletas de cores são definidas e estendidas.
+* `src/app/services/theme.service.ts`: Serviço que gerencia a lógica de troca de tema e persistência local.
+* `src/app/components/theme-switcher/theme-switcher.component.ts`: Componente de exemplo que exibe os botões para a seleção do tema.
 
-## Building
+---
 
-To build the project run:
+## 🚀 Instalação e Execução
 
-```bash
-ng build
-```
+1.  Clone este repositório:
+    ```bash
+    git clone [https://www.youtube.com/watch?v=GRf6so_sois](https://www.youtube.com/watch?v=GRf6so_sois)
+    ```
 
-This will compile your project and store the build artifacts in the `dist/` directory. By default, the production build optimizes your application for performance and speed.
+2.  Navegue até o diretório do projeto:
+    ```bash
+    cd [nome do seu projeto]
+    ```
 
-## Running unit tests
+3.  Instale as dependências:
+    ```bash
+    npm install
+    ```
 
-To execute unit tests with the [Karma](https://karma-runner.github.io) test runner, use the following command:
+4.  Execute a aplicação em modo de desenvolvimento:
+    ```bash
+    ng serve
+    ```
 
-```bash
-ng test
-```
+A aplicação estará disponível em `http://localhost:4200/`.
 
-## Running end-to-end tests
+---
 
-For end-to-end (e2e) testing, run:
+## 🖌️ Personalização
 
-```bash
-ng e2e
-```
+Para adicionar ou modificar paletas de cores, edite o arquivo `tailwind.config.js`. Adicione novas cores na seção `theme.extend.colors` seguindo a mesma estrutura:
 
-Angular CLI does not come with an end-to-end testing framework by default. You can choose one that suits your needs.
-
-## Additional Resources
-
-For more information on using the Angular CLI, including detailed command references, visit the [Angular CLI Overview and Command Reference](https://angular.dev/tools/cli) page.
+```javascript
+module.exports = {
+  theme: {
+    extend: {
+      colors: {
+        'theme-green': {
+          DEFAULT: '#10B981', 
+          50: '#F0FDF4',
+          100: '#D1FAE5',
+          // ... outras tonalidades
+        },
+        // Adicione sua nova paleta aqui:
+        'theme-vermelho': {
+          DEFAULT: '#EF4444',
+          // ...
+        }
+      },
+    },
+  },
+  // ...
+};
